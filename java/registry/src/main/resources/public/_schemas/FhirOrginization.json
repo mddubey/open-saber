@@ -1,0 +1,1035 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "Organization",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "additionalProperties": true,
+  "required": [
+    "Organization"
+  ],
+  "properties": {
+    "Organization": {
+      "$id": "#/properties/Organization",
+      "type": "object",
+      "title": "The Organization Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "contained": [
+            {
+              "status": "active",
+              "id": "TMH-HIP-ENDPOINT",
+              "payloadType": [
+                {
+                  "text": "Tata Memorial Hospital, HIP communication interface"
+                }
+              ],
+              "resourceType": "Endpoint",
+              "connectionType": {
+                "code": "HTTP-REST",
+                "system": "http://www.nha.gov.in/PHR/connection-type"
+              },
+              "address": "http://tmc.gov.in/phr/hip/"
+            }
+          ],
+          "address": [
+            {
+              "text": "Dr. E Borges Road, Parel, Mumbai - 400 012 India",
+              "use": "work",
+              "postalCode": "400 012",
+              "city": "Mumbai",
+              "line": [
+                "Dr. E Borges Road, Parel"
+              ],
+              "state": "Maharasthra"
+            }
+          ],
+          "telecom": [
+            {
+              "system": "phone",
+              "value": "+91-22- 24177000"
+            }
+          ],
+          "active": true,
+          "contact": [
+            {
+              "telecom": [
+                {
+                  "value": "info@tmc.gov.in",
+                  "system": "email"
+                },
+                {
+                  "value": "+91-22-24146937",
+                  "use": "work",
+                  "system": "fax"
+                }
+              ],
+              "purpose": {
+                "text": "INFO"
+              }
+            }
+          ],
+          "alias": [
+            "TMH",
+            "TMC"
+          ],
+          "resourceType": "Organization",
+          "type": [
+            {
+              "coding": [
+                {
+                  "system": "http://nhai.gov.in/CodeSystem/organization-type",
+                  "display": "Healthcare Provider",
+                  "code": "prov"
+                }
+              ]
+            },
+            {
+              "text": "Educational Institute"
+            }
+          ],
+          "partOf": {
+            "reference": "Organization/department-of-atomic-engergy"
+          },
+          "endpoint": [
+            {
+              "reference": "http://tmc.gov.in",
+              "extension": [
+                {
+                  "url": "http://nhrr.org/extension-type/endpoint#type",
+                  "valueCode": "WEBSITE"
+                }
+              ]
+            },
+            {
+              "identifier": {
+                "type": {
+                  "text": "PHR-HIP"
+                }
+              },
+              "reference": "#TMH-HIP-ENDPOINT"
+            },
+            {
+              "display": "Tata Memorial Hospital, HIP communication interface",
+              "identifier": {
+                "type": {
+                  "text": "PHR-HIP"
+                }
+              },
+              "reference": "http://tmc.gov.in/phr/hip/"
+            }
+          ],
+          "id": "UNIQUE-RES-ID-FOR-TMH",
+          "name": "TATA MEMORIAL HOSPITAL"
+        }
+      ],
+      "additionalProperties": true,
+      "required": [
+        "resourceType",
+        "id",
+        "name",
+        "active",
+        "type",
+        "alias",
+        "telecom",
+        "partOf",
+        "address",
+        "contact",
+        "endpoint",
+        "contained"
+      ],
+      "properties": {
+        "resourceType": {
+          "$id": "#/properties/Organization/properties/resourceType",
+          "type": "string",
+          "title": "The Resourcetype Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "Organization"
+          ]
+        },
+        "id": {
+          "$id": "#/properties/Organization/properties/id",
+          "type": "string",
+          "title": "The Id Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "UNIQUE-RES-ID-FOR-TMH"
+          ]
+        },
+        "name": {
+          "$id": "#/properties/Organization/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "TATA MEMORIAL HOSPITAL"
+          ]
+        },
+        "active": {
+          "$id": "#/properties/Organization/properties/active",
+          "type": "boolean",
+          "title": "The Active Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "type": {
+          "$id": "#/properties/Organization/properties/type",
+          "type": "array",
+          "title": "The Type Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "coding": [
+                  {
+                    "code": "prov",
+                    "system": "http://nhai.gov.in/CodeSystem/organization-type",
+                    "display": "Healthcare Provider"
+                  }
+                ]
+              },
+              {
+                "text": "Educational Institute"
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Organization/properties/type/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "coding": [
+                  {
+                    "system": "http://nhai.gov.in/CodeSystem/organization-type",
+                    "display": "Healthcare Provider",
+                    "code": "prov"
+                  }
+                ]
+              },
+              {
+                "text": "Educational Institute"
+              }
+            ],
+            "additionalProperties": true,
+            "anyOf": [
+              {
+                "required": [
+                  "coding"
+                ]
+              },
+              {
+                "required": [
+                  "text"
+                ]
+              }
+            ],
+            "properties": {
+              "coding": {
+                "$id": "#/properties/Organization/properties/type/items/properties/coding",
+                "type": "array",
+                "title": "The Coding Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                  [
+                    {
+                      "display": "Healthcare Provider",
+                      "code": "prov",
+                      "system": "http://nhai.gov.in/CodeSystem/organization-type"
+                    }
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Organization/properties/type/items/properties/coding/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                    {
+                      "display": "Healthcare Provider",
+                      "code": "prov",
+                      "system": "http://nhai.gov.in/CodeSystem/organization-type"
+                    }
+                  ],
+                  "additionalProperties": true,
+                  "required": [
+                    "system",
+                    "code",
+                    "display"
+                  ],
+                  "properties": {
+                    "system": {
+                      "$id": "#/properties/Organization/properties/type/items/properties/coding/items/properties/system",
+                      "type": "string",
+                      "title": "The System Schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "http://nhai.gov.in/CodeSystem/organization-type"
+                      ]
+                    },
+                    "code": {
+                      "$id": "#/properties/Organization/properties/type/items/properties/coding/items/properties/code",
+                      "type": "string",
+                      "title": "The Code Schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "prov"
+                      ]
+                    },
+                    "display": {
+                      "$id": "#/properties/Organization/properties/type/items/properties/coding/items/properties/display",
+                      "type": "string",
+                      "title": "The Display Schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "Healthcare Provider"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "alias": {
+          "$id": "#/properties/Organization/properties/alias",
+          "type": "array",
+          "title": "The Alias Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              "TMH",
+              "TMC"
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Organization/properties/alias/items",
+            "type": "string",
+            "title": "The Items Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+              "TMH",
+              "TMC"
+            ]
+          }
+        },
+        "telecom": {
+          "$id": "#/properties/Organization/properties/telecom",
+          "type": "array",
+          "title": "The Telecom Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "value": "+91-22- 24177000",
+                "system": "phone"
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Organization/properties/telecom/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "value": "+91-22- 24177000",
+                "system": "phone"
+              }
+            ],
+            "additionalProperties": true,
+            "required": [
+              "system",
+              "value"
+            ],
+            "properties": {
+              "system": {
+                "$id": "#/properties/Organization/properties/telecom/items/properties/system",
+                "type": "string",
+                "title": "The System Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "phone"
+                ]
+              },
+              "value": {
+                "$id": "#/properties/Organization/properties/telecom/items/properties/value",
+                "type": "string",
+                "title": "The Value Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "+91-22- 24177000"
+                ]
+              }
+            }
+          }
+        },
+        "partOf": {
+          "$id": "#/properties/Organization/properties/partOf",
+          "type": "object",
+          "title": "The Partof Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "reference": "Organization/department-of-atomic-engergy"
+            }
+          ],
+          "additionalProperties": true,
+          "required": [
+            "reference"
+          ],
+          "properties": {
+            "reference": {
+              "$id": "#/properties/Organization/properties/partOf/properties/reference",
+              "type": "string",
+              "title": "The Reference Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "Organization/department-of-atomic-engergy"
+              ]
+            }
+          }
+        },
+        "address": {
+          "$id": "#/properties/Organization/properties/address",
+          "type": "array",
+          "title": "The Address Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "text": "Dr. E Borges Road, Parel, Mumbai - 400 012 India",
+                "use": "work",
+                "postalCode": "400 012",
+                "city": "Mumbai",
+                "line": [
+                  "Dr. E Borges Road, Parel"
+                ],
+                "state": "Maharasthra"
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Organization/properties/address/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "line": [
+                  "Dr. E Borges Road, Parel"
+                ],
+                "state": "Maharasthra",
+                "text": "Dr. E Borges Road, Parel, Mumbai - 400 012 India",
+                "use": "work",
+                "postalCode": "400 012",
+                "city": "Mumbai"
+              }
+            ],
+            "additionalProperties": true,
+            "required": [
+              "use",
+              "text",
+              "line",
+              "city",
+              "state",
+              "postalCode"
+            ],
+            "properties": {
+              "use": {
+                "$id": "#/properties/Organization/properties/address/items/properties/use",
+                "type": "string",
+                "title": "The Use Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "work"
+                ]
+              },
+              "text": {
+                "$id": "#/properties/Organization/properties/address/items/properties/text",
+                "type": "string",
+                "title": "The Text Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "Dr. E Borges Road, Parel, Mumbai - 400 012 India"
+                ]
+              },
+              "line": {
+                "$id": "#/properties/Organization/properties/address/items/properties/line",
+                "type": "array",
+                "title": "The Line Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                  [
+                    "Dr. E Borges Road, Parel"
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Organization/properties/address/items/properties/line/items",
+                  "type": "string",
+                  "title": "The Items Schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "Dr. E Borges Road, Parel"
+                  ]
+                }
+              },
+              "city": {
+                "$id": "#/properties/Organization/properties/address/items/properties/city",
+                "type": "string",
+                "title": "The City Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "Mumbai"
+                ]
+              },
+              "state": {
+                "$id": "#/properties/Organization/properties/address/items/properties/state",
+                "type": "string",
+                "title": "The State Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "Maharasthra"
+                ]
+              },
+              "postalCode": {
+                "$id": "#/properties/Organization/properties/address/items/properties/postalCode",
+                "type": "string",
+                "title": "The Postalcode Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "400 012"
+                ]
+              }
+            }
+          }
+        },
+        "contact": {
+          "$id": "#/properties/Organization/properties/contact",
+          "type": "array",
+          "title": "The Contact Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "telecom": [
+                  {
+                    "system": "email",
+                    "value": "info@tmc.gov.in"
+                  },
+                  {
+                    "use": "work",
+                    "system": "fax",
+                    "value": "+91-22-24146937"
+                  }
+                ],
+                "purpose": {
+                  "text": "INFO"
+                }
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Organization/properties/contact/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "telecom": [
+                  {
+                    "value": "info@tmc.gov.in",
+                    "system": "email"
+                  },
+                  {
+                    "value": "+91-22-24146937",
+                    "use": "work",
+                    "system": "fax"
+                  }
+                ],
+                "purpose": {
+                  "text": "INFO"
+                }
+              }
+            ],
+            "additionalProperties": true,
+            "required": [
+              "purpose",
+              "telecom"
+            ],
+            "properties": {
+              "purpose": {
+                "$id": "#/properties/Organization/properties/contact/items/properties/purpose",
+                "type": "object",
+                "title": "The Purpose Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                  {
+                    "text": "INFO"
+                  }
+                ],
+                "additionalProperties": true,
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "$id": "#/properties/Organization/properties/contact/items/properties/purpose/properties/text",
+                    "type": "string",
+                    "title": "The Text Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "INFO"
+                    ]
+                  }
+                }
+              },
+              "telecom": {
+                "$id": "#/properties/Organization/properties/contact/items/properties/telecom",
+                "type": "array",
+                "title": "The Telecom Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                  [
+                    {
+                      "system": "email",
+                      "value": "info@tmc.gov.in"
+                    },
+                    {
+                      "use": "work",
+                      "system": "fax",
+                      "value": "+91-22-24146937"
+                    }
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Organization/properties/contact/items/properties/telecom/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                    {
+                      "value": "info@tmc.gov.in",
+                      "system": "email"
+                    },
+                    {
+                      "use": "work",
+                      "system": "fax",
+                      "value": "+91-22-24146937"
+                    }
+                  ],
+                  "additionalProperties": true,
+                  "required": [
+                    "system",
+                    "value"
+                  ],
+                  "properties": {
+                    "system": {
+                      "$id": "#/properties/Organization/properties/contact/items/properties/telecom/items/properties/system",
+                      "type": "string",
+                      "title": "The System Schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "email"
+                      ]
+                    },
+                    "value": {
+                      "$id": "#/properties/Organization/properties/contact/items/properties/telecom/items/properties/value",
+                      "type": "string",
+                      "title": "The Value Schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "info@tmc.gov.in"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "endpoint": {
+          "$id": "#/properties/Organization/properties/endpoint",
+          "type": "array",
+          "title": "The Endpoint Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "reference": "http://tmc.gov.in",
+                "extension": [
+                  {
+                    "url": "http://nhrr.org/extension-type/endpoint#type",
+                    "valueCode": "WEBSITE"
+                  }
+                ]
+              },
+              {
+                "identifier": {
+                  "type": {
+                    "text": "PHR-HIP"
+                  }
+                },
+                "reference": "#TMH-HIP-ENDPOINT"
+              },
+              {
+                "display": "Tata Memorial Hospital, HIP communication interface",
+                "identifier": {
+                  "type": {
+                    "text": "PHR-HIP"
+                  }
+                },
+                "reference": "http://tmc.gov.in/phr/hip/"
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Organization/properties/endpoint/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "reference": "http://tmc.gov.in",
+                "extension": [
+                  {
+                    "url": "http://nhrr.org/extension-type/endpoint#type",
+                    "valueCode": "WEBSITE"
+                  }
+                ]
+              },
+              {
+                "identifier": {
+                  "type": {
+                    "text": "PHR-HIP"
+                  }
+                },
+                "reference": "#TMH-HIP-ENDPOINT"
+              },
+              {
+                "display": "Tata Memorial Hospital, HIP communication interface",
+                "identifier": {
+                  "type": {
+                    "text": "PHR-HIP"
+                  }
+                },
+                "reference": "http://tmc.gov.in/phr/hip/"
+              }
+            ],
+            "additionalProperties": true,
+            "required": [
+              "reference"
+            ],
+            "properties": {
+              "reference": {
+                "$id": "#/properties/Organization/properties/endpoint/items/properties/reference",
+                "type": "string",
+                "title": "The Reference Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "http://tmc.gov.in"
+                ]
+              },
+              "extension": {
+                "$id": "#/properties/Organization/properties/endpoint/items/properties/extension",
+                "type": "array",
+                "title": "The Extension Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                  [
+                    {
+                      "url": "http://nhrr.org/extension-type/endpoint#type",
+                      "valueCode": "WEBSITE"
+                    }
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Organization/properties/endpoint/items/properties/extension/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                    {
+                      "url": "http://nhrr.org/extension-type/endpoint#type",
+                      "valueCode": "WEBSITE"
+                    }
+                  ],
+                  "additionalProperties": true,
+                  "required": [
+                    "url",
+                    "valueCode"
+                  ],
+                  "properties": {
+                    "url": {
+                      "$id": "#/properties/Organization/properties/endpoint/items/properties/extension/items/properties/url",
+                      "type": "string",
+                      "title": "The Url Schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "http://nhrr.org/extension-type/endpoint#type"
+                      ]
+                    },
+                    "valueCode": {
+                      "$id": "#/properties/Organization/properties/endpoint/items/properties/extension/items/properties/valueCode",
+                      "type": "string",
+                      "title": "The Valuecode Schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "WEBSITE"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "contained": {
+          "$id": "#/properties/Organization/properties/contained",
+          "type": "array",
+          "title": "The Contained Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "payloadType": [
+                  {
+                    "text": "Tata Memorial Hospital, HIP communication interface"
+                  }
+                ],
+                "resourceType": "Endpoint",
+                "connectionType": {
+                  "code": "HTTP-REST",
+                  "system": "http://www.nha.gov.in/PHR/connection-type"
+                },
+                "address": "http://tmc.gov.in/phr/hip/",
+                "status": "active",
+                "id": "TMH-HIP-ENDPOINT"
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Organization/properties/contained/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "status": "active",
+                "id": "TMH-HIP-ENDPOINT",
+                "payloadType": [
+                  {
+                    "text": "Tata Memorial Hospital, HIP communication interface"
+                  }
+                ],
+                "resourceType": "Endpoint",
+                "connectionType": {
+                  "system": "http://www.nha.gov.in/PHR/connection-type",
+                  "code": "HTTP-REST"
+                },
+                "address": "http://tmc.gov.in/phr/hip/"
+              }
+            ],
+            "additionalProperties": true,
+            "required": [
+              "resourceType",
+              "address",
+              "id",
+              "status",
+              "connectionType",
+              "payloadType"
+            ],
+            "properties": {
+              "resourceType": {
+                "$id": "#/properties/Organization/properties/contained/items/properties/resourceType",
+                "type": "string",
+                "title": "The Resourcetype Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "Endpoint"
+                ]
+              },
+              "address": {
+                "$id": "#/properties/Organization/properties/contained/items/properties/address",
+                "type": "string",
+                "title": "The Address Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "http://tmc.gov.in/phr/hip/"
+                ]
+              },
+              "id": {
+                "$id": "#/properties/Organization/properties/contained/items/properties/id",
+                "type": "string",
+                "title": "The Id Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "TMH-HIP-ENDPOINT"
+                ]
+              },
+              "status": {
+                "$id": "#/properties/Organization/properties/contained/items/properties/status",
+                "type": "string",
+                "title": "The Status Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "active"
+                ]
+              },
+              "connectionType": {
+                "$id": "#/properties/Organization/properties/contained/items/properties/connectionType",
+                "type": "object",
+                "title": "The Connectiontype Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                  {
+                    "code": "HTTP-REST",
+                    "system": "http://www.nha.gov.in/PHR/connection-type"
+                  }
+                ],
+                "additionalProperties": true,
+                "required": [
+                  "system",
+                  "code"
+                ],
+                "properties": {
+                  "system": {
+                    "$id": "#/properties/Organization/properties/contained/items/properties/connectionType/properties/system",
+                    "type": "string",
+                    "title": "The System Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "http://www.nha.gov.in/PHR/connection-type"
+                    ]
+                  },
+                  "code": {
+                    "$id": "#/properties/Organization/properties/contained/items/properties/connectionType/properties/code",
+                    "type": "string",
+                    "title": "The Code Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "HTTP-REST"
+                    ]
+                  }
+                }
+              },
+              "payloadType": {
+                "$id": "#/properties/Organization/properties/contained/items/properties/payloadType",
+                "type": "array",
+                "title": "The Payloadtype Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                  [
+                    {
+                      "text": "Tata Memorial Hospital, HIP communication interface"
+                    }
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Organization/properties/contained/items/properties/payloadType/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                    {
+                      "text": "Tata Memorial Hospital, HIP communication interface"
+                    }
+                  ],
+                  "additionalProperties": true,
+                  "required": [
+                    "text"
+                  ],
+                  "properties": {
+                    "text": {
+                      "$id": "#/properties/Organization/properties/contained/items/properties/payloadType/items/properties/text",
+                      "type": "string",
+                      "title": "The Text Schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "Tata Memorial Hospital, HIP communication interface"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -18,11 +18,11 @@ perf:
 
 registry:
   context:
-    base: ${registry_context_base:http://localhost:8080/}
+    base: ${registry_context_base:http://localhost:8085/}
   system:
-    base: ${registry_system_base:http://localhost:8080/opensaber/}
+    base: ${registry_system_base:http://localhost:8085/opensaber/}
   rootEntity:
-    type: ${registry_rootentity_type:Teacher}
+    type: ${registry_rootentity_type:Organization}
 
 # This property is to be used for search request/query
 # offset: search result starts from value provided as default
@@ -50,7 +50,7 @@ database:
 
   # Providers available are NEO4J, SQLG, CASSANDRA, ORIENTDB, TINKERGRAPH (in-memory).
   # NOTE: Values given against 'shardId' must be unique
-  provider: ${database_provider:NEO4J}
+  provider: ${database_provider:SQLG}
 
   # Choose "none" as the propertyName if you don't want any shards. Otherwise
   # implement IShardAdvisor interface in your own ways. An example, SerialNumShardAdvisor
@@ -83,10 +83,10 @@ database:
       #     ** Example - Postgres - jdbc:postgresql://localhost:5432/yourdb
       #     * 3. NoSQL  databases (Cassandra)
       #     ** Example - cassandra - jdbc:cassandra://localhost:9160/yourdb
-      uri: ${connectionInfo_uri:bolt://localhost:7687}
+      uri: ${connectionInfo_uri:jdbc:postgresql://localhost:5432/org_registry}
 
-      username: ${connectionInfo_username:}
-      password: ${connectionInfo_password:}
+      username: admin
+      password: 12345
 
       # Any other shard information follows...
       #-
@@ -116,7 +116,7 @@ frame:
   file: ${frame_file:frame.json}
 
 encryption:
-  enabled: ${encryption_enabled:true}
+  enabled: ${encryption_enabled:false}
   base: ${encryption_base:http://localhost:8013}
   uri: ${encryption_uri:http://localhost:8013/encrypt}
   batch:
@@ -128,7 +128,7 @@ decryption:
     uri: ${decryption_batch_uri:http://localhost:8013/decrypt/obj}
 
 signature:
-  enabled: ${signature_enabled:true}
+  enabled: ${signature_enabled:false}
   healthCheckURL: ${sign_health_check_url:http://localhost:8013/}
   signURL: ${sign_url:http://localhost:8013/sign}
   verifyURL: ${verify_url:http://localhost:8013/verify}
@@ -144,7 +144,7 @@ signature:
     #file: ${audit_frame_file:audit_frame.json}
 
 authentication:
-  enabled: ${authentication_enabled:true}
+  enabled: false
 
 keycloak:
   sso:
@@ -204,7 +204,8 @@ elastic:
     enabled: ${elastic_search_enabled:true}
     # elastic-search connection info
     connection_url: ${elastic_search_connection_url:localhost:9200}
-
+server:
+  port: 8085
 ---
 ##################################################################
 #                      TEST PROFILE                              #
@@ -240,7 +241,7 @@ database:
 
   # Providers available are NEO4J, SQLG, TINKERGRAPH, CASSANDRA, ORIENTDB.
   # NOTE: Values given against 'shardId' must be unique
-  provider: ${database_provider:NEO4J}
+  provider: ${database_provider:SQLG}
 
   # Choose "none" as the propertyName if you don't want any shards. Otherwise
   # implement IShardAdvisor interface in your own ways. An example, SerialNumShardAdvisor
