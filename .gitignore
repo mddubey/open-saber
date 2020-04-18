@@ -69,8 +69,8 @@ target
 
 # Properties
 config-*.properties
-application.properties
-application.yml
+#application.properties
+#application.yml
 
 # Json-LD
 schema-configuration.jsonld
