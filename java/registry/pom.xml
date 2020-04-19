@@ -246,6 +246,11 @@
         </dependency>
 
         <!-- Include this dependency for Postgres support -->
+        <dependency>
+            <groupId>org.umlg</groupId>
+            <artifactId>sqlg-h2</artifactId>
+            <version>2.0.0</version>
+        </dependency>
 		<dependency>
 			<groupId>org.umlg</groupId>
 			<artifactId>sqlg-postgres</artifactId>
@@ -288,6 +293,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
