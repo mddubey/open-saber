@@ -16,116 +16,6 @@
       "title": "The Organization Schema",
       "description": "An explanation about the purpose of this instance.",
       "default": {},
-      "examples": [
-        {
-          "contained": [
-            {
-              "status": "active",
-              "id": "TMH-HIP-ENDPOINT",
-              "payloadType": [
-                {
-                  "text": "Tata Memorial Hospital, HIP communication interface"
-                }
-              ],
-              "resourceType": "Endpoint",
-              "connectionType": {
-                "code": "HTTP-REST",
-                "system": "http://www.nha.gov.in/PHR/connection-type"
-              },
-              "address": "http://tmc.gov.in/phr/hip/"
-            }
-          ],
-          "address": [
-            {
-              "text": "Dr. E Borges Road, Parel, Mumbai - 400 012 India",
-              "use": "work",
-              "postalCode": "400 012",
-              "city": "Mumbai",
-              "line": [
-                "Dr. E Borges Road, Parel"
-              ],
-              "state": "Maharasthra"
-            }
-          ],
-          "telecom": [
-            {
-              "system": "phone",
-              "value": "+91-22- 24177000"
-            }
-          ],
-          "active": true,
-          "contact": [
-            {
-              "telecom": [
-                {
-                  "value": "info@tmc.gov.in",
-                  "system": "email"
-                },
-                {
-                  "value": "+91-22-24146937",
-                  "use": "work",
-                  "system": "fax"
-                }
-              ],
-              "purpose": {
-                "text": "INFO"
-              }
-            }
-          ],
-          "alias": [
-            "TMH",
-            "TMC"
-          ],
-          "resourceType": "Organization",
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "http://nhai.gov.in/CodeSystem/organization-type",
-                  "display": "Healthcare Provider",
-                  "code": "prov"
-                }
-              ]
-            },
-            {
-              "text": "Educational Institute"
-            }
-          ],
-          "partOf": {
-            "reference": "Organization/department-of-atomic-engergy"
-          },
-          "endpoint": [
-            {
-              "reference": "http://tmc.gov.in",
-              "extension": [
-                {
-                  "url": "http://nhrr.org/extension-type/endpoint#type",
-                  "valueCode": "WEBSITE"
-                }
-              ]
-            },
-            {
-              "identifier": {
-                "type": {
-                  "text": "PHR-HIP"
-                }
-              },
-              "reference": "#TMH-HIP-ENDPOINT"
-            },
-            {
-              "display": "Tata Memorial Hospital, HIP communication interface",
-              "identifier": {
-                "type": {
-                  "text": "PHR-HIP"
-                }
-              },
-              "reference": "http://tmc.gov.in/phr/hip/"
-            }
-          ],
-          "id": "UNIQUE-RES-ID-FOR-TMH",
-          "name": "TATA MEMORIAL HOSPITAL"
-        }
-      ],
       "additionalProperties": true,
       "required": [
         "resourceType",
@@ -145,12 +35,10 @@
         "resourceType": {
           "$id": "#/properties/Organization/properties/resourceType",
           "type": "string",
-          "title": "The Resourcetype Schema",
+          "title": "Resource Type",
           "description": "An explanation about the purpose of this instance.",
           "default": "",
-          "examples": [
-            "Organization"
-          ]
+          "const": "Organization"
         },
         "id": {
           "$id": "#/properties/Organization/properties/id",
@@ -165,7 +53,7 @@
         "name": {
           "$id": "#/properties/Organization/properties/name",
           "type": "string",
-          "title": "The Name Schema",
+          "title": "Name",
           "description": "An explanation about the purpose of this instance.",
           "default": "",
           "examples": [
@@ -175,7 +63,7 @@
         "active": {
           "$id": "#/properties/Organization/properties/active",
           "type": "boolean",
-          "title": "The Active Schema",
+          "title": "Active",
           "description": "An explanation about the purpose of this instance.",
           "default": false,
           "examples": [

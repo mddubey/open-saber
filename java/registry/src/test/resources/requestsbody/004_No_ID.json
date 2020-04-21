@@ -1,0 +1,119 @@
+{
+  "id": "open-saber.registry.create",
+  "ver": "1.0",
+  "ets": "11234",
+  "params": {
+    "did": "",
+    "key": "",
+    "msgid": ""
+  },
+  "request": {
+    "Organization": {
+      "resourceType": "Organization",
+      "name": "TATA MEMORIAL HOSPITAL",
+      "active": true,
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://nhai.gov.in/CodeSystem/organization-type",
+              "code": "prov",
+              "display": "Healthcare Provider"
+            }
+          ]
+        },
+        {
+          "text": "Educational Institute"
+        }
+      ],
+      "alias": [
+        "TMH",
+        "TMC"
+      ],
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "+91-22- 24177000"
+        }
+      ],
+      "partOf": {
+        "reference": "Organization/department-of-atomic-engergy"
+      },
+      "address": [
+        {
+          "use": "work",
+          "text": "Dr. E Borges Road, Parel, Mumbai - 400 012 India",
+          "line": [
+            "Dr. E Borges Road, Parel"
+          ],
+          "city": "Mumbai",
+          "state": "Maharasthra",
+          "postalCode": "400 012"
+        }
+      ],
+      "contact": [
+        {
+          "purpose": {
+            "text": "INFO"
+          },
+          "telecom": [
+            {
+              "system": "email",
+              "value": "info@tmc.gov.in"
+            },
+            {
+              "system": "fax",
+              "value": "+91-22-24146937",
+              "use": "work"
+            }
+          ]
+        }
+      ],
+      "endpoint": [
+        {
+          "reference": "http://tmc.gov.in",
+          "extension": [
+            {
+              "url": "http://nhrr.org/extension-type/endpoint#type",
+              "valueCode": "WEBSITE"
+            }
+          ]
+        },
+        {
+          "reference": "#TMH-HIP-ENDPOINT",
+          "identifier": {
+            "type": {
+              "text": "PHR-HIP"
+            }
+          }
+        },
+        {
+          "reference": "http://tmc.gov.in/phr/hip/",
+          "identifier": {
+            "type": {
+              "text": "PHR-HIP"
+            }
+          },
+          "display": "Tata Memorial Hospital, HIP communication interface"
+        }
+      ],
+      "contained": [
+        {
+          "resourceType": "Endpoint",
+          "address": "http://tmc.gov.in/phr/hip/",
+          "id": "TMH-HIP-ENDPOINT",
+          "status": "active",
+          "connectionType": {
+            "system": "http://www.nha.gov.in/PHR/connection-type",
+            "code": "HTTP-REST"
+          },
+          "payloadType": [
+            {
+              "text": "Tata Memorial Hospital, HIP communication interface"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
