@@ -37,7 +37,7 @@ public class Neo4jGraphProvider extends DatabaseProvider {
         setUuidPropertyName(uuidPropName);
 
         // TODO: Check with auth
-        driver = GraphDatabase.driver(connection.getUri(), AuthTokens.none());
+        driver = GraphDatabase.driver(connection.getUri(), AuthTokens.basic(connectionInfo.getUsername(), connectionInfo.getPassword()));
         neo4jIdProvider.setUuidPropertyName(getUuidPropertyName());
         logger.info("Initialized db driver at {}", connectionInfo.getUri());
     }

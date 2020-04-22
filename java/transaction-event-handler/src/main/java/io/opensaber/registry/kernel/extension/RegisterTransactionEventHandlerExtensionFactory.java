@@ -15,7 +15,7 @@ public class RegisterTransactionEventHandlerExtensionFactory
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Lifecycle newInstance(KernelContext context, final Dependencies dependencies) throws Throwable {
+	public Lifecycle newInstance(KernelContext context, final Dependencies dependencies) {
 		return new LifecycleAdapter() {
 
 			private Neo4jTransactionEventHandler handler;
