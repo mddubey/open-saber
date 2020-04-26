@@ -317,7 +317,8 @@ public class VertexReader {
                         Map.Entry<String, JsonNode> item = entryIterator.next();
                         JsonNode ar = item.getValue();
                         for (JsonNode node : ar) {
-                            String osidVal = ArrayHelper.unquoteString(node.get(uuidPropertyName).asText());
+//                            String osidVal = ArrayHelper.unquoteString(node.get(uuidPropertyName).asText());
+                            String osidVal = ArrayHelper.unquoteString(node.textValue());
                             ObjectNode ovalue = uuidNodeMap.getOrDefault(osidVal, null);
                             if (ovalue != null) {
                                 resultArr.add(ovalue);
