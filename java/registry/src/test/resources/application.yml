@@ -83,7 +83,7 @@ database:
       #     ** Example - Postgres - jdbc:postgresql://localhost:5432/yourdb
       #     * 3. NoSQL  databases (Cassandra)
       #     ** Example - cassandra - jdbc:cassandra://localhost:9160/yourdb
-      uri: ${connectionInfo_uri:jdbc:postgresql://localhost:5432/test_org_registry?createDatabaseIfNotExist=true}
+      uri: ${connectionInfo_uri:jdbc:postgresql://localhost:5432/test_org_registry}
 
       username: admin
       password: 12345
